@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSE Example</title>
+</head>
+<body>
+  <div id="events-container"></div>
+
+  <script>
+    const eventsContainer = document.getElementById('events-container');
+    const eventSource = new EventSource('/events');  // Connect to SSE endpoint
+
+    eventSource.onmessage = (event) => {
+      const eventData = JSON.parse(event.data);  // Parse received data
+      console.log("the event data ",eventData)
+      const messageElement = document.createElement('p');
+      messageElement.textContent = `${eventData.message} - ${eventData.timestamp}`;
+      eventsContainer.appendChild(messageElement);  // Display message in UI
+    };
+
+    eventSource.onerror = (error) => {
+      console.error('EventSource failed:', error);
+      eventSource.close();
+    };
+  </script>
+</body>
+</html>

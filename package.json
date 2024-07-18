@@ -1,0 +1,20 @@
+{
+  "name": "server_sent_events",
+  "version": "1.0.0",
+  "description": "server sent events",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "http",
+    "keep",
+    "connection",
+    "live"
+  ],
+  "author": "avanish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
